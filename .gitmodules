@@ -1,0 +1,3 @@
+[submodule "ultrajson"]
+	path = ultrajson
+	url = git://github.com/mikeyk/ultrajson.git
