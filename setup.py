@@ -3,6 +3,7 @@ from distutils.core import setup, Extension
 import distutils.sysconfig
 import shutil
 import os.path
+import subprocess
 import re
 
 try:
@@ -27,6 +28,10 @@ def get_version():
 	m = re.search(r'#define\s+UJSON_VERSION\s+"(\d+\.\d+(?:\.\d+)?)"', header)
 	assert m, "version.h must contain UJSON_VERSION macro"
 	return m.group(1)
+
+
+subprocess.call(["git", 'submodule', 'init'])
+subprocess.call(["git", 'submodule', 'update'])
 
 setup (name = 'ujson',
 		version = get_version(),
